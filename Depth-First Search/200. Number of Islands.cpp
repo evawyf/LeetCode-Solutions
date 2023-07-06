@@ -1,10 +1,16 @@
-# 200. Number of Islands
+/*
+200. Number of Islands
 
-Algo: DFS
-Time: O(mn), m rows and n cols. 
-Space: O(mn), in worse case, if map filled with land and DFS goes by `m x n` deepth. 
+- Algo: DFS
+- Time: O(mn), m rows and n cols. 
+- Space: O(mn), in worse case, if map filled with land and DFS goes by `m x n` deepth. 
 
-```c
+*/
+
+#include <vector>
+#include <functional>
+using namespace std; 
+
 class Solution {
 public: 
     int numIslands(vector<vector<char>>& grid) {
@@ -16,8 +22,7 @@ public:
         function<void(int,int)> dfs = [&](int r, int c){
             // validation check
             if (r < 0 || c < 0 || r >= rows || c >= cols || grid[r][c] == '0') { return ; }
-            // mark current 
-            grid[r][c] = '0';
+            grid[r][c] = '0'; // marked current postion
             for (auto &[dr, dc] : dirs) {
                 dfs(r + dr, c + dc);
             }
@@ -34,5 +39,4 @@ public:
         return ans; 
     }
 };
-``` 
 
