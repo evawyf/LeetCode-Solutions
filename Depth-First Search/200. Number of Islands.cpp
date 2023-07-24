@@ -6,7 +6,9 @@
 - Space: O(mn), in worse case, if map filled with land and DFS goes by `m x n` deepth. 
 
 */
+// #include <bits/stdc++.h>
 
+#include <iostream>
 #include <vector>
 #include <functional>
 using namespace std; 
@@ -40,3 +42,15 @@ public:
     }
 };
 
+int main(){
+    Solution sol; 
+    vector<vector<char>> grid = {
+        {'1','1','1','1','0'}, 
+        {'1','1','0','1','0'}, 
+        {'1','1','0','0','0'}, 
+        {'0','0','0','0','0'}
+    };
+    int ans = sol.numIslands(grid);
+    cout << ans << endl;
+    return 0;
+};
